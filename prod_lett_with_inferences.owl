@@ -1,0 +1,2309 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/produzione_letteraria#"
+     xml:base="http://www.semanticweb.org/produzione_letteraria"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:produzione_letteraria="http://www.semanticweb.org/produzione_letteraria#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/produzione_letteraria">
+        <dc:creator>Alberto Remondino</dc:creator>
+        <dc:creator>Paolo Peretti</dc:creator>
+        <dc:date>2022-01-17T11:00:00.00</dc:date>
+        <dc:description xml:lang="it">L&apos;ontologia ha lo scopo di rappresentare la conoscenza relativa alla produzione letteraria. 
+Vengono considerati i possibili collegamenti con varie classi anche per poter comprendere in che modo una risorsa letteraria possa essere accomunata ad un altra. 
+Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente nuove letture in base ad i suoi interessi.</dc:description>
+        <dc:title xml:lang="it">Ontologia sulla produzione letteraria</dc:title>
+        <vann:preferredNamespacePrefix xml:lang="it">pl</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="http://www.semanticweb.org/produzione_letteraria"/>
+        <rdfs:label xml:lang="it">produzione_letteraria</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrowMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#appartieneA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#appartieneA">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#definisce"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria appartiene ad un genere letterario</rdfs:comment>
+        <rdfs:label xml:lang="it">appartieneA</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#contiene -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#contiene">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#ècontenutoDa"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Una collezione contiene una risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">contiene</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#definisce -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#definisce">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Un genere letterario definisce una risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">definisce</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#haIdeato_collezione -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#haIdeato_collezione">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#ècontenutoDa"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Un autore ha ideato una collezione se ha scritto una risorsa che fa parte di quella collezione</rdfs:comment>
+        <rdfs:label xml:lang="it">haIdeato_collezione</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_scritto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_scritto">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#è_stato_scritto"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Un autore ha scritto (ha prodotto) una risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_scritto</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#legge -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#legge">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#è_letto"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Il lettore legge una risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">legge</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#macro_trattataDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#macro_trattataDa">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi_macro"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#parlaDi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#è_trattataDa"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Una macro tematica parla di un&apos;altro argomento, se quell&apos;argomento è trattato da una risorsa letteraria, la risorsa a sua volta tratterà la macro tematica associata all&apos;argomento</rdfs:comment>
+        <rdfs:label xml:lang="it">macro_trattataDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#macro_èCorrelata -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#macro_èCorrelata">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#èCorrelato_daMacro"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#parlaDi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelata"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Una macro tematica parla di un&apos;altro argomento che è correlato con un genere letterario, quindi quel genere letterario sarà a sua volta correlato con la macro tematica</rdfs:comment>
+        <rdfs:label xml:lang="it">macro_èCorrelata</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#parlaDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#parlaDi">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#èAffrontataIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">Una macro tematica parla di una tematica più specifica</rdfs:comment>
+        <rdfs:label xml:lang="it">parlaDi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#studia -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#studia">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#legge"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#è_letto"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#è_studiatoDa"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+        <rdfs:comment xml:lang="it">Una persona studia un libro scolastico, quindi è uno studente</rdfs:comment>
+        <rdfs:label xml:lang="it">studia</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#trattaDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#trattaDi">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#è_trattataDa"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria tratta di una tematica</rdfs:comment>
+        <rdfs:label xml:lang="it">trattaDi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#trattaDi_daGenere -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#trattaDi_daGenere">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#èTrattataDa_daGenere"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelato"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelato_daMacro"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria appartiene ad un genere letterario che è correlato ad una tematica o ad una macro tematica, quindi questa risorsa tratta di questo argomento</rdfs:comment>
+        <rdfs:label xml:lang="it">trattaDi_daGenere</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#trattaDi_macro -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#trattaDi_macro">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#èAffrontataIn"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria tratta di una tematica che è affrontata da una macro tematica, quindi questa risorsa tratta anche della macro tematica</rdfs:comment>
+        <rdfs:label xml:lang="it">trattaDi_macro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èAffrontataIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èAffrontataIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
+        <rdfs:comment xml:lang="it">Una tematica viene affrontata in una macro tematica più generale</rdfs:comment>
+        <rdfs:label xml:lang="it">èAffrontataIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èCorrelata -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelata">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#èCorrelato"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <rdfs:comment xml:lang="it">Una tematica è correlata ad un genere letterario</rdfs:comment>
+        <rdfs:label xml:lang="it">èCorrelata</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èCorrelato -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelato">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">Un genere letterario è correlato ad una tematica</rdfs:comment>
+        <rdfs:label xml:lang="it">èCorrelato</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èCorrelato_daMacro -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelato_daMacro">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#parlaDi"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Un genere letterario è correlato ad una tematica che parla di un&apos;altra tematica e quindi è correlato a questo argomento più specifico</rdfs:comment>
+        <rdfs:label xml:lang="it">èCorrelato_daMacro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èTrattataDa_daGenere -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èTrattataDa_daGenere">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#macro_èCorrelata"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#definisce"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#èCorrelata"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#definisce"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Una tematica o macro tematica è correlata ad un genere letterario che definisce una risorsa letteraria, quindi questa tematica è trattata da questa risorsa</rdfs:comment>
+        <rdfs:label xml:lang="it">èTrattataDa_daGenere</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#è_letto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#è_letto">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria viene letta da un lettore</rdfs:comment>
+        <rdfs:label xml:lang="it">è_letto</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#è_stato_scritto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#è_stato_scritto">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Una risorsa è stata scritta da un autore</rdfs:comment>
+        <rdfs:label xml:lang="it">è_stato_scritto</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#è_studiatoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#è_studiatoDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#è_letto"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#legge"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente"/>
+        <rdfs:comment xml:lang="it">Un libro scolastico viene studiato da uno studente</rdfs:comment>
+        <rdfs:label xml:lang="it">è_studiatoDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#è_trattataDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#è_trattataDa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Una tematica viene trattata in una risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">è_trattataDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ècontenutoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ècontenutoDa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <rdfs:comment xml:lang="it">Una  risorsa letteraria è contenuta all&apos;interno di una collezione</rdfs:comment>
+        <rdfs:label xml:lang="it">ècontenutoDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#codice_lettura -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#codice_lettura">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>dx_sx</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>sx_dx</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="it">Un fumetto può essere letto da sinistra verso destra o viceversa</rdfs:comment>
+        <rdfs:label xml:lang="it">codice_lettura</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#compostoDa_vignette -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#compostoDa_vignette">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria può essere composta da vignette (immagini con dialoghi)</rdfs:comment>
+        <rdfs:label xml:lang="it">compostoDa_vignette</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#contiene_istruzioni -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#contiene_istruzioni">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria può contenere istruzioni, in questo caso si può parlare di un manuale</rdfs:comment>
+        <rdfs:label xml:lang="it">contiene_istruzioni</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#descrive_lingua -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#descrive_lingua">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#èIn_lingua"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Dizionario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
+        <rdfs:comment xml:lang="it">Un dizionario è stato scritto in una lingua per descriverla</rdfs:comment>
+        <rdfs:label xml:lang="it">descrive_lingua</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#haDataNascita -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#haDataNascita">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="it">Una persona è nata in una certa data</rdfs:comment>
+        <rdfs:label xml:lang="it">haDataNascita</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#haPunteggio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#haPunteggio">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="it">Una risorsa può essere valutata con un punteggio (da 0 a 10)</rdfs:comment>
+        <rdfs:label xml:lang="it">haPunteggio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#haVersione -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#haVersione">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Digitale</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Fisico</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria viene rilasciata in formato digitale oppure fisico</rdfs:comment>
+        <rdfs:label xml:lang="it">haVersione</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_nazionalità -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_nazionalità">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Una persona ha una determinata nazionalità</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_nazionalità</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_nome -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_nome">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Una persona ha un nome associato</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_nome</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_numpag -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_numpag">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria ha un determinato numero di pagine</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_numpag</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_periodicità -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_periodicità">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Rivista"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>annuale</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>mensile</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>settimanale</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="it">Una rivista può essere rilasciata con una periodicità settimanale, mensile o annuale</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_periodicità</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_titolo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_titolo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria ha un titolo</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_titolo</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ha_trama -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#ha_trama">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria ha una trama che serve per riassumere la lettura</rdfs:comment>
+        <rdfs:label xml:lang="it">ha_trama</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#tipo_versi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#tipo_versi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Poesia"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>alternata</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>baciata</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>incatenata</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>incrociata</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>sciolta</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="it">Una poesia è presentata attraverso rime di diverso tipo</rdfs:comment>
+        <rdfs:label xml:lang="it">tipo_versi</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èIn_lingua -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èIn_lingua">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria è stata scritta in una certa lingua</rdfs:comment>
+        <rdfs:label xml:lang="it">èIn_lingua</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èRaccoltaOrdinata -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èRaccoltaOrdinata">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria può essere una raccolta di elementi che segue un ordine</rdfs:comment>
+        <rdfs:label xml:lang="it">èRaccoltaOrdinata</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#èuscitoIn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#èuscitoIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria è stata pubblicata in una certa data</rdfs:comment>
+        <rdfs:label xml:lang="it">èuscitoIn</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Autore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Autore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment xml:lang="it">Persona che ha prodotto almeno 1 risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Autore</rdfs:label>
+        <skos:broadMatch rdf:resource="http://purl.org/dc/elements/1.1/creator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Collezione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Collezione">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#contiene"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Una collezione è un insieme di risorse letterarie.</rdfs:comment>
+        <rdfs:label xml:lang="it">Collezione</rdfs:label>
+        <skos:broadMatch rdf:resource="http://purl.org/ontology/bibo/CollectedDocument"/>
+        <skos:broadMatch>http://purl.org/dc/dcmitype/Collection</skos:broadMatch>
+        <skos:broadMatch>http://purl.org/ontology/bibo/Collection</skos:broadMatch>
+        <skos:broadMatch>http://purl.org/ontology/bibo/Series</skos:broadMatch>
+        <skos:broadMatch>http://purl.org/spar/fabio/Catalog</skos:broadMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Book</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Document</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Dizionario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Dizionario">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#descrive_lingua"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#èRaccoltaOrdinata"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdfs:comment xml:lang="it">Il dizionario è una raccolta ordinata di descrizioni di termini, questa risorsa permette di descrivere una lingua</rdfs:comment>
+        <rdfs:label xml:lang="it">Dizionario</rdfs:label>
+        <skos:exactMatch>http://purl.org/spar/fabio/TermDictionary</skos:exactMatch>
+        <skos:exactMatch>http://purl.org/spar/fabio/Vocabulary</skos:exactMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Enciclopedia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Enciclopedia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#scienza"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#storia"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#arte"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#èRaccoltaOrdinata"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_superiori"/>
+        <rdfs:comment xml:lang="it">L&apos;enciclopedia è una raccolta ordinata di spiegazioni di carattere artistico, storico o scientifico</rdfs:comment>
+        <rdfs:label xml:lang="it">Enciclopedia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Fumettista -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Fumettista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Il fumettista è un autore che ha scritto qualche fumetto</rdfs:comment>
+        <rdfs:label xml:lang="it">Fumettista</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Fumetto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Fumetto">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#compostoDa_vignette"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Fumetto_Occidentale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Manga"/>
+        </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Il fumetto è una opera letteraria che si differenzia per il fatto che è composta da vignette, una vignetta è composta da immagini e dialoghi</rdfs:comment>
+        <rdfs:label xml:lang="it">Fumetto</rdfs:label>
+        <skos:narrowMatch>http://purl.org/eprint/type/BookItem</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Chapter</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/spar/fabio/ArtisticWork</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/spar/fabio/Image</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Fumetto_Occidentale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Fumetto_Occidentale">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#codice_lettura"/>
+                <owl:hasValue>sx_dx</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+        <rdfs:comment xml:lang="it">Il fumetto occidentale è un fumetto che si legge da sinistra verso destra</rdfs:comment>
+        <rdfs:label xml:lang="it">Fumetto_Occidentale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Genere_letterario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Genere_letterario">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_biografico"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_fantasy"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_giallo"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_giornalistico"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_horror"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_poetico"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_rosa"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_storico"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Un genere letterario è una categoria della scrittura letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Genere_letterario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Giornale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Giornale">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giornalistico"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_numpag"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">100</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Il giornale è una risorsa letteraria che appartiene al genere giornalistico</rdfs:comment>
+        <rdfs:label xml:lang="it">Giornale</rdfs:label>
+        <skos:exactMatch rdf:resource="http://purl.org/ontology/bibo/Newspaper"/>
+        <skos:exactMatch>http://purl.org/spar/fabio/Newspaper</skos:exactMatch>
+        <skos:narrowMatch>http://purl.org/eprint/type/BookItem</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/eprint/type/NewsItem</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Article</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Giornalista -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Giornalista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Giornale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Autore che scrive giornali</rdfs:comment>
+        <rdfs:label xml:lang="it">Giornalista</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Lettore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Lettore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#legge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment xml:lang="it">Persona che ha letto almeno 1 risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Lettore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Libro_Classico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_Classico">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_numpag"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">100</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">Il libro classico è un risorsa letteraria che corrisponde al tipo di libro più diffuso</rdfs:comment>
+        <rdfs:label xml:lang="it">Libro_Classico</rdfs:label>
+        <skos:exactMatch rdf:resource="http://purl.org/eprint/type/Book"/>
+        <skos:exactMatch rdf:resource="http://purl.org/ontology/bibo/Book"/>
+        <skos:narrowMatch>http://purl.org/eprint/type/BookItem</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/BookSection</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Chapter</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/spar/fabio/Biography</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Libro_scolastico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_superiori"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_università"/>
+        </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Il libro scolastico è un libro che ha l&apos;obiettivo di spiegare informazioni riguardo ad una materia affrontata in un&apos;ambiente scolastico</rdfs:comment>
+        <rdfs:label xml:lang="it">Libro_scolastico</rdfs:label>
+        <skos:exactMatch>http://purl.org/eprint/type/ScholarlyText</skos:exactMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Libro_superiori -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_superiori">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_superiori"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi_macro"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_superiori"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+        <rdfs:comment xml:lang="it">Il libro superiori è un libro scolastico che tratta di uno studio affrontato nelle scuole superiori</rdfs:comment>
+        <rdfs:label xml:lang="it">Libro_superiori</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Libro_università -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_università">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_universitario"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi_macro"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_universitario"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+        <rdfs:comment xml:lang="it">Il libro università è un libro scolastico che tratta di un argomento di studio universitario</rdfs:comment>
+        <rdfs:label xml:lang="it">Libro_università</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#MacroTematica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#MacroTematica">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#parlaDi"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La macro tematica è un argomento più generale che contiene anche un&apos;altra tematica, più specifica</rdfs:comment>
+        <rdfs:label xml:lang="it">MacroTematica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Manga -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Manga">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#codice_lettura"/>
+                <owl:hasValue>dx_sx</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+        <rdfs:comment xml:lang="it">Il manga è un fumetto che si legge da destra verso sinistra</rdfs:comment>
+        <rdfs:label xml:lang="it">Manga</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Mangaka -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Mangaka">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Manga"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumettista"/>
+        <rdfs:comment xml:lang="it">Autore che scrive manga</rdfs:comment>
+        <rdfs:label xml:lang="it">Mangaka</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Manuale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Manuale">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#contiene_istruzioni"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdfs:comment xml:lang="it">Il manuale è una risorsa che si basa su una serie di istruzioni</rdfs:comment>
+        <rdfs:label xml:lang="it">Manuale</rdfs:label>
+        <skos:exactMatch rdf:resource="http://purl.org/ontology/bibo/Manual"/>
+        <skos:exactMatch>http://purl.org/spar/fabio/InstructionManual</skos:exactMatch>
+        <skos:narrowMatch>http://purl.org/eprint/type/BookItem</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Narrante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Narrante">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Autore che scrive libri narrativi</rdfs:comment>
+        <rdfs:label xml:lang="it">Narrante</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Poesia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Poesia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_poetico"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#tipo_versi"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">La poesia è una risorsa che appartiene al genere letterario poetico, inoltre una poesia può essere scritta in una tipologia specifica di rima</rdfs:comment>
+        <rdfs:label xml:lang="it">Poesia</rdfs:label>
+        <skos:exactMatch>http://purl.org/spar/fabio/Poem</skos:exactMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Poeta -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Poeta">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Poesia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Autore che scrive poesie</rdfs:comment>
+        <rdfs:label xml:lang="it">Poeta</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Professore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Professore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Autore che ha scritto almeno 1 libro scolastico</rdfs:comment>
+        <rdfs:label xml:lang="it">Professore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Raccolta_Poesie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Raccolta_Poesie">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#contiene"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/produzione_letteraria#Poesia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <rdfs:comment xml:lang="it">Una raccolta di poesie è una collezione che contiene almeno 2 poesie</rdfs:comment>
+        <rdfs:label xml:lang="it">Raccolta_Poesie</rdfs:label>
+        <skos:broadMatch>http://purl.org/spar/fabio/Anthology</skos:broadMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#haVersione"/>
+                                <owl:someValuesFrom>
+                                    <rdfs:Datatype>
+                                        <owl:oneOf>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Digitale</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </owl:oneOf>
+                                    </rdfs:Datatype>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#haVersione"/>
+                                <owl:someValuesFrom>
+                                    <rdfs:Datatype>
+                                        <owl:oneOf>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Fisico</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </owl:oneOf>
+                                    </rdfs:Datatype>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_titolo"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minLength>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Giornale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Poesia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Rivista"/>
+        </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Una risorsa letteraria è un opera con un titolo che tratta di almeno 1 tematica e che appartiene ad almeno 1 genere letterario (può avere un formato cartaceo, ma anche digitale)</rdfs:comment>
+        <rdfs:label xml:lang="it">Risorsa_letteraria</rdfs:label>
+        <skos:broadMatch>http://purl.org/ontology/bibo/Document</skos:broadMatch>
+        <skos:exactMatch>http://purl.org/dc/terms/BibliographicResource</skos:exactMatch>
+        <skos:narrowMatch>http://purl.org/dc/dcmitype/Text</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/spar/fabio/Page</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Rivista -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Rivista">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_periodicità"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>annuale</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_periodicità"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>mensile</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_periodicità"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>settimanale</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:comment xml:lang="it">La rivista è una risorsa che viene pubblicata con una periodicità settimanale, mensile o annuale</rdfs:comment>
+        <rdfs:label xml:lang="it">Rivista</rdfs:label>
+        <skos:broadMatch>http://purl.org/ontology/bibo/Periodical</skos:broadMatch>
+        <skos:exactMatch>http://purl.org/ontology/bibo/Magazine</skos:exactMatch>
+        <skos:narrowMatch>http://purl.org/eprint/type/BookItem</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/eprint/type/JournalArticle</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/eprint/type/JournalItem</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Article</skos:narrowMatch>
+        <skos:narrowMatch>http://purl.org/ontology/bibo/Journal</skos:narrowMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Scrittore_gialli -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Scrittore_gialli">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                                <owl:hasValue rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giallo"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Autore che ha scritto almeno 1 libro classico che appartiene al genere letterario giallo</rdfs:comment>
+        <rdfs:label xml:lang="it">Scrittore_gialli</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Storico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Storico">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_scritto"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_storico"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdfs:comment xml:lang="it">Autore che scrive libri di storia</rdfs:comment>
+        <rdfs:label xml:lang="it">Storico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Studente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Studente">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#studia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdfs:comment xml:lang="it">Lettore che ha studiato qualche libro di carattere scolastico</rdfs:comment>
+        <rdfs:label xml:lang="it">Studente</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Studente_superiori -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Studente_superiori">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#studia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_superiori"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente"/>
+        <rdfs:comment xml:lang="it">Studente che studia almeno 1 libro di carattere scolastico per le superiori</rdfs:comment>
+        <rdfs:label xml:lang="it">Studente_superiori</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Studente_università -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Studente_università">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#studia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_università"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente"/>
+        <rdfs:comment xml:lang="it">Studente che studia almeno 1 libro di carattere scolastico per l&apos;università</rdfs:comment>
+        <rdfs:label xml:lang="it">Studente_università</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Tematica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Tematica">
+        <rdfs:comment xml:lang="it">La tematica è un argomento di cui parlare</rdfs:comment>
+        <rdfs:label xml:lang="it">Tematica</rdfs:label>
+        <skos:exactMatch>http://purl.org/spar/fabio/ReferenceEntry</skos:exactMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Tematica_scolastica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Tematica_scolastica">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_superiori"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_universitario"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica scolastica è un&apos;argomento che tratta di studio di carattere scolastico</rdfs:comment>
+        <rdfs:label xml:lang="it">Tematica_scolastica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Trilogia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/produzione_letteraria#Trilogia">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/produzione_letteraria#contiene"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <rdfs:comment xml:lang="it">La trilogia è una collezione che raccoglie esattamente 3 risorse letterarie</rdfs:comment>
+        <rdfs:label xml:lang="it">Trilogia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Andrea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Andrea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#IlMastinoDeiBaskerville"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#Slam_dunk"/>
+        <ha_nome>Andrea</ha_nome>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Andrea</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ArthurConanDoyle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#ArthurConanDoyle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Scrittore_gialli"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <ha_nome>Arthur Conan Doyle</ha_nome>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">ArthurConanDoyle</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Giorgio_Giorgino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Giorgio_Giorgino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Giornalista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Professore"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <ha_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#Imparare_Dante"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#IlFuMattiaPascal"/>
+        <ha_nome>Giorgio Giorgino</ha_nome>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Giorgio_Giorgino</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#IlFuMattiaPascal -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#IlFuMattiaPascal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#famiglia"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.0</haPunteggio>
+        <haVersione>Digitale</haVersione>
+        <haVersione>Fisico</haVersione>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</ha_numpag>
+        <ha_titolo>Il Fu Mattia Pascal</ha_titolo>
+        <èIn_lingua>it</èIn_lingua>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">IlFuMattiaPascal</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#IlMastinoDeiBaskerville -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#IlMastinoDeiBaskerville">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giallo"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#ArthurConanDoyle"/>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</ha_numpag>
+        <ha_titolo>Il mastino dei Baskerville</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">IlMastinoDeiBaskerville</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Imparare_Dante -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Imparare_Dante">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_scolastico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_superiori"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#letteratura_superiori"/>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</ha_numpag>
+        <ha_titolo>Imparare Dante</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Imparare_Dante</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Luca -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Luca">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente_superiori"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#la_maschera"/>
+        <studia rdf:resource="http://www.semanticweb.org/produzione_letteraria#Imparare_Dante"/>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Luca</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Pirandello -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Pirandello">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Narrante"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Poeta"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <ha_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#IlFuMattiaPascal"/>
+        <ha_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#la_fune"/>
+        <ha_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#la_maschera"/>
+        <ha_nazionalità>Italiana</ha_nazionalità>
+        <ha_nome>Luigi Pirandello</ha_nome>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Pirandello</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#PoliticaOggi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#PoliticaOggi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Giornale"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giornalistico"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#news"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#politica"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#problemi"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#Giorgio_Giorgino"/>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</ha_numpag>
+        <ha_titolo>Politica Oggi</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">PoliticaOggi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Slam_dunk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Slam_dunk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Manga"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_biografico"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#basket"/>
+        <codice_lettura>dx_sx</codice_lettura>
+        <ha_titolo>Slam Dunk</ha_titolo>
+        <èIn_lingua>en</èIn_lingua>
+        <èIn_lingua>it</èIn_lingua>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Slam_dunk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Takehiko_Inoue -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Takehiko_Inoue">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumettista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Mangaka"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <ha_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#Slam_dunk"/>
+        <ha_nazionalità>Giapponese</ha_nazionalità>
+        <ha_nome>Takehiko Inoue</ha_nome>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Takehiko_Inoue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#UnoStudioInRosso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#UnoStudioInRosso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giallo"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#investigazione"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#ArthurConanDoyle"/>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</ha_numpag>
+        <ha_titolo>Uno studio in rosso</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">UnoStudioInRosso</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Uno_nessuno_centomila -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Uno_nessuno_centomila">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#follia"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</ha_numpag>
+        <ha_titolo>Uno, nessuno, centomila</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Uno_nessuno_centomila</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Vagabond -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Vagabond">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Manga"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_storico"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#viaggio"/>
+        <ha_titolo>Vagabond</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Vagabond</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#amore -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#amore">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un sentimento di viva affezione verso una persona</rdfs:comment>
+        <rdfs:label xml:lang="it">amore</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#arte -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#arte">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una qualsiasi forma di attività dell&apos;uomo come riprova o esaltazione del suo talento inventivo e della sua capacità espressiva</rdfs:comment>
+        <rdfs:label xml:lang="it">arte</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#basket -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#basket">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad uno sport a squadre nel quale la palla può essere giocata esclusivamente con le mani, lo scopo del gioco è che ogni squadra (di cinque elementi) riesca a mandare il pallone nel canestro avversario</rdfs:comment>
+        <rdfs:label xml:lang="it">basket</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#famiglia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#famiglia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un nucleo sociale rappresentato da due o più individui che vivono nella stessa abitazione e, di norma, sono legati tra loro col vincolo del matrimonio o da rapporti di parentela o di affinità.</rdfs:comment>
+        <rdfs:label xml:lang="it">famiglia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#fantasia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#fantasia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una facoltà dello spirito di riprodurre o inventare immagini mentali in rappresentazioni complesse, in parte o in tutto diverse dalla realtà</rdfs:comment>
+        <rdfs:label xml:lang="it">fantasia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#follia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#follia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad uno stato di alienazione mentale determinato dall&apos;abbandono di ogni criterio di giudizio; pazzia, demenza.</rdfs:comment>
+        <rdfs:label xml:lang="it">follia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_biografico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_biografico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#vita"/>
+        <rdfs:comment xml:lang="it">Nei libri di genere biografico il nucleo del romanzo è rappresentato dalla vita del protagonista</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_biografico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_fantasy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_fantasy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#fantasia"/>
+        <rdfs:comment xml:lang="it">Genere caratterizzato da un&apos;ambientazione fantastica e da un&apos;atmosfera di magia, nel quale prevalgono i riferimenti alla mitologia classica, alle fiabe, alle saghe nordiche e a un immaginario Medioevo</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_fantasy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_giallo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_giallo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#investigazione"/>
+        <rdfs:comment xml:lang="it">Genere giallo: romanzo Romanzo poliziesco molto diffuso (così chiamato in Italia a partire dagli anni Trenta perché di solito il libro aveva una copertina gialla), che tiene desto l&apos;interesse del lettore con la narrazione di misteriosi delitti o vicende impreviste e di un&apos;inchiesta</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_giallo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_giornalistico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_giornalistico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#news"/>
+        <rdfs:comment xml:lang="it">Il genere giornalistico è lo stile di prosa di brevi articoli per quotidiani e notiziari televisivi, agenzie di stampa e radiofonici</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_giornalistico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_horror -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_horror">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#paura"/>
+        <rdfs:comment xml:lang="it">I romanzi horror sfruttano le paure innate dei lettori per creare una trama terrifica, macabra e coinvolgente. L’ambientazione è necessariamente tenebrosa, buia e claustrofobica</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_horror</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_narrativo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_narrativo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#viaggio"/>
+        <rdfs:comment xml:lang="it">Il genere narrativo è la categoria concettuale alla quale è possibile attribuire ogni Opera Narrativa. Esso definisce i contenuti della vicenda allo scopo di renderla riconoscibile ed adatta alle esigenze di uno specifico pubblico.</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_narrativo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_poetico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_poetico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <rdfs:comment xml:lang="it">Il genere poetico è una forma d&apos;arte che crea, con la scelta e l&apos;accostamento di parole secondo particolari leggi metriche, un componimento fatto di frasi dette versi, in cui il significato semantico si lega al suono musicale dei fonemi. La poesia ha quindi in sé alcune qualità della musica e riesce a trasmettere concetti e stati d&apos;animo in maniera più evocativa e potente di quanto faccia la prosa, in cui le parole non sottostanno alla metrica.</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_poetico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_rosa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_rosa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#amore"/>
+        <rdfs:comment xml:lang="it">L’elemento centrale della trama è una storia d’amore, rigorosamente a lieto fine</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_rosa</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#genere_storico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_storico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#sport"/>
+        <rdfs:comment xml:lang="it">Nel genere storico le vicende sono inserite in un contesto storico ben preciso e dettagliato, a cui ci si deve attenere rigorosamente, ma i personaggi e la trama che li muove possono essere liberamente creati dallo scrittore (stando però attento che risultino verosimili rispetto al contesto)</rdfs:comment>
+        <rdfs:label xml:lang="it">genere_storico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#identità -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#identità">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una consapevolezza di un ente razionale di essere sempre il medesimo e distinto da tutti gli altri</rdfs:comment>
+        <rdfs:label xml:lang="it">identità</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#investigazione -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#investigazione">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#omicidio"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una ricerca accurata e minuziosa della verità, soprattutto nel campo delle indagini condotte dalla polizia o dalla magistratura.</rdfs:comment>
+        <rdfs:label xml:lang="it">investigazione</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#la_fune -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#la_fune">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Poesia"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_poetico"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#amore"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#odio"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#povertà"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#ricchezza"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#tristezza"/>
+        <ha_titolo>La fune</ha_titolo>
+        <tipo_versi>baciata</tipo_versi>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">la_fune</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#la_maschera -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#la_maschera">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Poesia"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_poetico"/>
+        <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <haVersione>Digitale</haVersione>
+        <ha_titolo>La maschera</ha_titolo>
+        <tipo_versi>sciolta</tipo_versi>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">la_maschera</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#letteratura_superiori -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#letteratura_superiori">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <èAffrontataIn rdf:resource="http://www.semanticweb.org/produzione_letteraria#studio_superiori"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un insieme delle opere studiate nelle scuole superiori</rdfs:comment>
+        <rdfs:label xml:lang="it">letteratura_superiori</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#news -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#news">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un oggetto di comunicazione o diffusione</rdfs:comment>
+        <rdfs:label xml:lang="it">news</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#odio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#odio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una risoluta ostilità, che implica di solito un atteggiamento istintivo di condanna associato a rifiuto, ripugnanza verso qualcosa</rdfs:comment>
+        <rdfs:label xml:lang="it">odio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#omicidio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#omicidio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un reato che consiste nel cagionare la morte di un uomo</rdfs:comment>
+        <rdfs:label xml:lang="it">omicidio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#paura -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#paura">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad uno stato emotivo di repulsione e di apprensione in prossimità di un vero o presunto pericolo</rdfs:comment>
+        <rdfs:label xml:lang="it">paura</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#poesie_sparse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#poesie_sparse">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Raccolta_Poesie"/>
+        <contiene rdf:resource="http://www.semanticweb.org/produzione_letteraria#la_fune"/>
+        <contiene rdf:resource="http://www.semanticweb.org/produzione_letteraria#la_maschera"/>
+        <rdfs:comment xml:lang="it">Nome di collezione</rdfs:comment>
+        <rdfs:label xml:lang="it">poesie_sparse</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#politica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#politica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una scienza e tecnica, come teoria e prassi, che ha per oggetto la costituzione, l&apos;organizzazione, l&apos;amministrazione dello stato e la direzione della vita pubblica</rdfs:comment>
+        <rdfs:label xml:lang="it">politica</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#povertà -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#povertà">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una condizione di inferiorità economica (e per lo più anche sociale)</rdfs:comment>
+        <rdfs:label xml:lang="it">povertà</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#problemi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#problemi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#follia"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#paura"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#povertà"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#tristezza"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un quesito che attende una soluzione</rdfs:comment>
+        <rdfs:label xml:lang="it">problemi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#ricchezza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#ricchezza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una larga disponibilità di beni e spec. di denaro</rdfs:comment>
+        <rdfs:label xml:lang="it">ricchezza</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#scienza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#scienza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale al risultato delle operazioni del pensiero</rdfs:comment>
+        <rdfs:label xml:lang="it">scienza</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#sport -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#sport">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un&apos;attività che impegna, sul piano dell&apos;agonismo oppure dell&apos;esercizio individuale o collettivo, le capacità fisico-psichiche, svolta con intenti ricreativi ed igienici o come professione</rdfs:comment>
+        <rdfs:label xml:lang="it">sport</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#storia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#storia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un indagine o ricerca critica relativa a una ricostruzione ordinata di eventi umani reciprocamente collegati secondo una linea unitaria di sviluppo</rdfs:comment>
+        <rdfs:label xml:lang="it">storia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#studio_superiori -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_superiori">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica_scolastica"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#arte"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#scienza"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#storia"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un&apos;applicazione volta all&apos;apprendimento di una o più discipline insegnate nelle scuole superiori</rdfs:comment>
+        <rdfs:label xml:lang="it">studio_superiori</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#studio_universitario -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#studio_universitario">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica_scolastica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un&apos;applicazione volta all&apos;apprendimento di una o più discipline insegnate nell&apos;università</rdfs:comment>
+        <rdfs:label xml:lang="it">studio_universtitario</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#tristezza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#tristezza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad uno stato di depressione riconducibile a un particolare dolore o a una diffusa e cupa malinconia</rdfs:comment>
+        <rdfs:label xml:lang="it">tristezza</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#viaggio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#viaggio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad un trasferimento da un luogo a un altro</rdfs:comment>
+        <rdfs:label xml:lang="it">viaggio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#vita -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#vita">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#amore"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#famiglia"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <rdfs:comment xml:lang="it">La tematica equivale ad una forza attiva propria degli esseri animali e vegetali, in virtù della quale essi sono in grado di muoversi, reagire agli stimoli ambientali, conservare e reintegrare la propria forma e costituzione e riprodurla in nuovi organismi simili a sé</rdfs:comment>
+        <rdfs:label xml:lang="it">vita</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
