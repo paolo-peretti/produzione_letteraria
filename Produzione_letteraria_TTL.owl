@@ -7,7 +7,10 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
 @prefix produzione_letteraria: <http://www.semanticweb.org/produzione_letteraria#> .
 @base <http://www.semanticweb.org/produzione_letteraria> .
 
@@ -49,6 +52,10 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Description
@@ -182,6 +189,12 @@ produzione_letteraria:parlaDi rdf:type owl:ObjectProperty ;
                               rdfs:range produzione_letteraria:Tematica ;
                               rdfs:comment "Una macro tematica parla di una tematica più specifica"@it ;
                               rdfs:label "parlaDi"@it .
+
+
+###  http://www.semanticweb.org/produzione_letteraria#stessa_nazionalitàDi
+produzione_letteraria:stessa_nazionalitàDi rdf:type owl:ObjectProperty ;
+                                           rdfs:domain produzione_letteraria:Lettore ;
+                                           rdfs:range produzione_letteraria:Autore .
 
 
 ###  http://www.semanticweb.org/produzione_letteraria#studia
@@ -498,6 +511,15 @@ produzione_letteraria:tipo_versi rdf:type owl:DatatypeProperty ,
                                             ] ;
                                  rdfs:comment "Una poesia è presentata attraverso rime di diverso tipo"@it ;
                                  rdfs:label "tipo_versi"@it .
+
+
+###  http://www.semanticweb.org/produzione_letteraria#tra_leMigliori
+produzione_letteraria:tra_leMigliori rdf:type owl:DatatypeProperty ,
+                                              owl:FunctionalProperty ;
+                                     rdfs:domain produzione_letteraria:Risorsa_letteraria ;
+                                     rdfs:range xsd:boolean ;
+                                     rdfs:comment "Risorsa letteraria che è tra quelle valutate meglio"@it ;
+                                     rdfs:label "tra_leMigliori"@it .
 
 
 ###  http://www.semanticweb.org/produzione_letteraria#èIn_lingua
@@ -1145,8 +1167,10 @@ foaf:Person rdf:type owl:Class .
 
 ###  http://www.semanticweb.org/produzione_letteraria#Andrea
 produzione_letteraria:Andrea rdf:type owl:NamedIndividual ;
-                             produzione_letteraria:legge produzione_letteraria:IlMastinoDeiBaskerville ,
+                             produzione_letteraria:legge produzione_letteraria:Harry_Potter_1 ,
+                                                         produzione_letteraria:IlMastinoDeiBaskerville ,
                                                          produzione_letteraria:Slam_dunk ;
+                             produzione_letteraria:ha_nazionalità "Italiana" ;
                              produzione_letteraria:ha_nome "Andrea" ;
                              rdfs:comment "Nome proprio di persona"@it ;
                              rdfs:label "Andrea"@it .
@@ -1163,9 +1187,46 @@ produzione_letteraria:ArthurConanDoyle rdf:type owl:NamedIndividual ;
 produzione_letteraria:Giorgio_Giorgino rdf:type owl:NamedIndividual ;
                                        produzione_letteraria:ha_scritto produzione_letteraria:Imparare_Dante ;
                                        produzione_letteraria:legge produzione_letteraria:IlFuMattiaPascal ;
+                                       produzione_letteraria:ha_nazionalità "Italiana" ;
                                        produzione_letteraria:ha_nome "Giorgio Giorgino" ;
                                        rdfs:comment "Nome proprio di persona"@it ;
                                        rdfs:label "Giorgio_Giorgino"@it .
+
+
+###  http://www.semanticweb.org/produzione_letteraria#Harry_Potter_1
+produzione_letteraria:Harry_Potter_1 rdf:type owl:NamedIndividual ;
+                                     produzione_letteraria:appartieneA produzione_letteraria:genere_fantasy ,
+                                                                       produzione_letteraria:genere_narrativo ;
+                                     produzione_letteraria:è_stato_scritto produzione_letteraria:J.K._Rowling ;
+                                     produzione_letteraria:haPunteggio "9.0"^^xsd:float ;
+                                     produzione_letteraria:ha_numpag "304"^^xsd:nonNegativeInteger ;
+                                     produzione_letteraria:ha_titolo "Harry Potter e la pietra filosofale"^^xsd:string ;
+                                     rdfs:comment "Nome di risorsa letteraria"@it ;
+                                     rdfs:label "Harry_Potter_1"@it .
+
+
+###  http://www.semanticweb.org/produzione_letteraria#Harry_Potter_2
+produzione_letteraria:Harry_Potter_2 rdf:type owl:NamedIndividual ;
+                                     produzione_letteraria:appartieneA produzione_letteraria:genere_fantasy ,
+                                                                       produzione_letteraria:genere_narrativo ;
+                                     produzione_letteraria:è_stato_scritto produzione_letteraria:J.K._Rowling ;
+                                     produzione_letteraria:haPunteggio "8.5"^^xsd:float ;
+                                     produzione_letteraria:ha_numpag "309"^^xsd:nonNegativeInteger ;
+                                     produzione_letteraria:ha_titolo "Harry Potter e la camera dei segreti"^^xsd:string ;
+                                     rdfs:comment "Nome di risorsa letteraria"@it ;
+                                     rdfs:label "Harry_Potter_2"@it .
+
+
+###  http://www.semanticweb.org/produzione_letteraria#Harry_Potter_3
+produzione_letteraria:Harry_Potter_3 rdf:type owl:NamedIndividual ;
+                                     produzione_letteraria:appartieneA produzione_letteraria:genere_fantasy ,
+                                                                       produzione_letteraria:genere_narrativo ;
+                                     produzione_letteraria:è_stato_scritto produzione_letteraria:J.K._Rowling ;
+                                     produzione_letteraria:haPunteggio "8.0"^^xsd:float ;
+                                     produzione_letteraria:ha_numpag "392"^^xsd:nonNegativeInteger ;
+                                     produzione_letteraria:ha_titolo "Harry Potter e il prigioniero di Azkaban"^^xsd:string ;
+                                     rdfs:comment "Nome di risorsa letteraria"@it ;
+                                     rdfs:label "Harry_Potter_3"@it .
 
 
 ###  http://www.semanticweb.org/produzione_letteraria#IlFuMattiaPascal
@@ -1187,6 +1248,7 @@ produzione_letteraria:IlFuMattiaPascal rdf:type owl:NamedIndividual ;
 produzione_letteraria:IlMastinoDeiBaskerville rdf:type owl:NamedIndividual ;
                                               produzione_letteraria:appartieneA produzione_letteraria:genere_giallo ;
                                               produzione_letteraria:è_stato_scritto produzione_letteraria:ArthurConanDoyle ;
+                                              produzione_letteraria:haPunteggio "6.5"^^xsd:float ;
                                               produzione_letteraria:ha_numpag 250 ;
                                               produzione_letteraria:ha_titolo "Il mastino dei Baskerville" ;
                                               rdfs:comment "Nome di risorsa letteraria"@it ;
@@ -1196,16 +1258,27 @@ produzione_letteraria:IlMastinoDeiBaskerville rdf:type owl:NamedIndividual ;
 ###  http://www.semanticweb.org/produzione_letteraria#Imparare_Dante
 produzione_letteraria:Imparare_Dante rdf:type owl:NamedIndividual ;
                                      produzione_letteraria:trattaDi produzione_letteraria:letteratura_superiori ;
+                                     produzione_letteraria:haPunteggio "5.5"^^xsd:float ;
                                      produzione_letteraria:ha_numpag 250 ;
                                      produzione_letteraria:ha_titolo "Imparare Dante" ;
                                      rdfs:comment "Nome di risorsa letteraria"@it ;
                                      rdfs:label "Imparare_Dante"@it .
 
 
+###  http://www.semanticweb.org/produzione_letteraria#J.K._Rowling
+produzione_letteraria:J.K._Rowling rdf:type owl:NamedIndividual ;
+                                   produzione_letteraria:ha_nome "J.K. Rowling"^^xsd:string ;
+                                   rdfs:comment "Nome proprio di persona"@it ;
+                                   rdfs:label "J.K._Rowling"@it .
+
+
 ###  http://www.semanticweb.org/produzione_letteraria#Luca
 produzione_letteraria:Luca rdf:type owl:NamedIndividual ;
-                           produzione_letteraria:legge produzione_letteraria:la_maschera ;
+                           produzione_letteraria:legge produzione_letteraria:Harry_Potter_1 ,
+                                                       produzione_letteraria:Harry_Potter_2 ,
+                                                       produzione_letteraria:la_maschera ;
                            produzione_letteraria:studia produzione_letteraria:Imparare_Dante ;
+                           produzione_letteraria:ha_nazionalità "Italiana" ;
                            rdfs:comment "Nome proprio di persona"@it ;
                            rdfs:label "Luca"@it .
 
@@ -1228,10 +1301,20 @@ produzione_letteraria:PoliticaOggi rdf:type owl:NamedIndividual ;
                                                                   produzione_letteraria:politica ,
                                                                   produzione_letteraria:problemi ;
                                    produzione_letteraria:è_stato_scritto produzione_letteraria:Giorgio_Giorgino ;
+                                   produzione_letteraria:haPunteggio "5.0"^^xsd:float ;
                                    produzione_letteraria:ha_numpag 50 ;
                                    produzione_letteraria:ha_titolo "Politica Oggi" ;
                                    rdfs:comment "Nome di risorsa letteraria"@it ;
                                    rdfs:label "PoliticaOggi"@it .
+
+
+###  http://www.semanticweb.org/produzione_letteraria#Saga_Harry_Potter
+produzione_letteraria:Saga_Harry_Potter rdf:type owl:NamedIndividual ;
+                                        produzione_letteraria:contiene produzione_letteraria:Harry_Potter_1 ,
+                                                                       produzione_letteraria:Harry_Potter_2 ,
+                                                                       produzione_letteraria:Harry_Potter_3 ;
+                                        rdfs:comment "Nome di collezione"@it ;
+                                        rdfs:label "Saga_Harry_Potter"@it .
 
 
 ###  http://www.semanticweb.org/produzione_letteraria#Slam_dunk
@@ -1239,6 +1322,7 @@ produzione_letteraria:Slam_dunk rdf:type owl:NamedIndividual ;
                                 produzione_letteraria:appartieneA produzione_letteraria:genere_biografico ;
                                 produzione_letteraria:trattaDi produzione_letteraria:basket ;
                                 produzione_letteraria:codice_lettura "dx_sx" ;
+                                produzione_letteraria:haPunteggio "10.0"^^xsd:float ;
                                 produzione_letteraria:ha_titolo "Slam Dunk" ;
                                 produzione_letteraria:èIn_lingua "en" ,
                                                                  "it" ;
@@ -1260,6 +1344,7 @@ produzione_letteraria:UnoStudioInRosso rdf:type owl:NamedIndividual ;
                                        produzione_letteraria:appartieneA produzione_letteraria:genere_giallo ;
                                        produzione_letteraria:trattaDi produzione_letteraria:investigazione ;
                                        produzione_letteraria:è_stato_scritto produzione_letteraria:ArthurConanDoyle ;
+                                       produzione_letteraria:haPunteggio "8.5"^^xsd:float ;
                                        produzione_letteraria:ha_numpag 125 ;
                                        produzione_letteraria:ha_titolo "Uno studio in rosso" ;
                                        rdfs:comment "Nome di risorsa letteraria"@it ;
@@ -1271,6 +1356,8 @@ produzione_letteraria:Uno_nessuno_centomila rdf:type owl:NamedIndividual ;
                                             produzione_letteraria:appartieneA produzione_letteraria:genere_narrativo ;
                                             produzione_letteraria:trattaDi produzione_letteraria:follia ,
                                                                            produzione_letteraria:identità ;
+                                            produzione_letteraria:è_stato_scritto produzione_letteraria:Pirandello ;
+                                            produzione_letteraria:haPunteggio "8.0"^^xsd:float ;
                                             produzione_letteraria:ha_numpag 112 ;
                                             produzione_letteraria:ha_titolo "Uno, nessuno, centomila" ;
                                             rdfs:comment "Nome di risorsa letteraria"@it ;
@@ -1284,6 +1371,7 @@ produzione_letteraria:Vagabond rdf:type owl:NamedIndividual ,
                                                                  produzione_letteraria:genere_storico ;
                                produzione_letteraria:trattaDi produzione_letteraria:identità ,
                                                               produzione_letteraria:viaggio ;
+                               produzione_letteraria:haPunteggio "9.5"^^xsd:float ;
                                produzione_letteraria:ha_titolo "Vagabond" ;
                                rdfs:comment "Nome di risorsa letteraria"@it ;
                                rdfs:label "Vagabond"@it .
@@ -1292,6 +1380,7 @@ produzione_letteraria:Vagabond rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/produzione_letteraria#amore
 produzione_letteraria:amore rdf:type owl:NamedIndividual ,
                                      produzione_letteraria:Tematica ;
+                            produzione_letteraria:parlaDi produzione_letteraria:romanticismo ;
                             rdfs:comment "La tematica equivale ad un sentimento di viva affezione verso una persona"@it ;
                             rdfs:label "amore"@it .
 
@@ -1387,7 +1476,7 @@ produzione_letteraria:genere_poetico rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/produzione_letteraria#genere_rosa
 produzione_letteraria:genere_rosa rdf:type owl:NamedIndividual ,
                                            produzione_letteraria:Genere_letterario ;
-                                  produzione_letteraria:èCorrelato produzione_letteraria:amore ;
+                                  produzione_letteraria:èCorrelato produzione_letteraria:romanticismo ;
                                   rdfs:comment "L’elemento centrale della trama è una storia d’amore, rigorosamente a lieto fine"@it ;
                                   rdfs:label "genere_rosa"@it .
 
@@ -1395,7 +1484,7 @@ produzione_letteraria:genere_rosa rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/produzione_letteraria#genere_storico
 produzione_letteraria:genere_storico rdf:type owl:NamedIndividual ,
                                               produzione_letteraria:Genere_letterario ;
-                                     produzione_letteraria:èCorrelato produzione_letteraria:sport ;
+                                     produzione_letteraria:èCorrelato produzione_letteraria:storia ;
                                      rdfs:comment "Nel genere storico le vicende sono inserite in un contesto storico ben preciso e dettagliato, a cui ci si deve attenere rigorosamente, ma i personaggi e la trama che li muove possono essere liberamente creati dallo scrittore (stando però attento che risultino verosimili rispetto al contesto)"@it ;
                                      rdfs:label "genere_storico"@it .
 
@@ -1422,6 +1511,7 @@ produzione_letteraria:la_fune rdf:type owl:NamedIndividual ;
                                                              produzione_letteraria:povertà ,
                                                              produzione_letteraria:ricchezza ,
                                                              produzione_letteraria:tristezza ;
+                              produzione_letteraria:haPunteggio "8.0"^^xsd:float ;
                               produzione_letteraria:ha_titolo "La fune" ;
                               produzione_letteraria:tipo_versi "baciata" ;
                               rdfs:comment "Nome di risorsa letteraria"@it ;
@@ -1432,6 +1522,7 @@ produzione_letteraria:la_fune rdf:type owl:NamedIndividual ;
 produzione_letteraria:la_maschera rdf:type owl:NamedIndividual ;
                                   produzione_letteraria:appartieneA produzione_letteraria:genere_poetico ;
                                   produzione_letteraria:trattaDi produzione_letteraria:identità ;
+                                  produzione_letteraria:haPunteggio "7.5"^^xsd:float ;
                                   produzione_letteraria:haVersione "Digitale" ;
                                   produzione_letteraria:ha_titolo "La maschera" ;
                                   produzione_letteraria:tipo_versi "sciolta" ;
@@ -1513,6 +1604,10 @@ produzione_letteraria:ricchezza rdf:type owl:NamedIndividual ,
                                 rdfs:label "ricchezza"@it .
 
 
+###  http://www.semanticweb.org/produzione_letteraria#romanticismo
+produzione_letteraria:romanticismo rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/produzione_letteraria#scienza
 produzione_letteraria:scienza rdf:type owl:NamedIndividual ;
                               rdfs:comment "La tematica equivale al risultato delle operazioni del pensiero"@it ;
@@ -1522,6 +1617,7 @@ produzione_letteraria:scienza rdf:type owl:NamedIndividual ;
 ###  http://www.semanticweb.org/produzione_letteraria#sport
 produzione_letteraria:sport rdf:type owl:NamedIndividual ,
                                      produzione_letteraria:Tematica ;
+                            produzione_letteraria:parlaDi produzione_letteraria:basket ;
                             rdfs:comment "La tematica equivale ad un'attività che impegna, sul piano dell'agonismo oppure dell'esercizio individuale o collettivo, le capacità fisico-psichiche, svolta con intenti ricreativi ed igienici o come professione"@it ;
                             rdfs:label "sport"@it .
 
@@ -1535,9 +1631,6 @@ produzione_letteraria:storia rdf:type owl:NamedIndividual ;
 ###  http://www.semanticweb.org/produzione_letteraria#studio_superiori
 produzione_letteraria:studio_superiori rdf:type owl:NamedIndividual ,
                                                 produzione_letteraria:Tematica ;
-                                       produzione_letteraria:parlaDi produzione_letteraria:arte ,
-                                                                     produzione_letteraria:scienza ,
-                                                                     produzione_letteraria:storia ;
                                        rdfs:comment "La tematica equivale ad un'applicazione volta all'apprendimento di una o più discipline insegnate nelle scuole superiori"@it ;
                                        rdfs:label "studio_superiori"@it .
 
