@@ -8,7 +8,10 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:produzione_letteraria="http://www.semanticweb.org/produzione_letteraria#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/produzione_letteraria">
         <dc:creator>Alberto Remondino</dc:creator>
@@ -69,6 +72,12 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
     <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     
 
 
@@ -228,6 +237,15 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
         <rdfs:comment xml:lang="it">Una macro tematica parla di una tematica più specifica</rdfs:comment>
         <rdfs:label xml:lang="it">parlaDi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#stessa_nazionalitàDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#stessa_nazionalitàDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
     </owl:ObjectProperty>
     
 
@@ -708,6 +726,17 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         </rdfs:range>
         <rdfs:comment xml:lang="it">Una poesia è presentata attraverso rime di diverso tipo</rdfs:comment>
         <rdfs:label xml:lang="it">tipo_versi</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#tra_leMigliori -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/produzione_letteraria#tra_leMigliori">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Risorsa letteraria che è tra quelle valutate meglio</rdfs:comment>
+        <rdfs:label xml:lang="it">tra_leMigliori</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1645,8 +1674,10 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Andrea">
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_1"/>
         <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#IlMastinoDeiBaskerville"/>
         <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#Slam_dunk"/>
+        <ha_nazionalità>Italiana</ha_nazionalità>
         <ha_nome>Andrea</ha_nome>
         <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
         <rdfs:label xml:lang="it">Andrea</rdfs:label>
@@ -1677,9 +1708,61 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <ha_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#Imparare_Dante"/>
         <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#IlFuMattiaPascal"/>
+        <ha_nazionalità>Italiana</ha_nazionalità>
         <ha_nome>Giorgio Giorgino</ha_nome>
         <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
         <rdfs:label xml:lang="it">Giorgio_Giorgino</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Harry_Potter_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_fantasy"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#J.K._Rowling"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.0</haPunteggio>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">304</ha_numpag>
+        <ha_titolo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harry Potter e la pietra filosofale</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Harry_Potter_1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Harry_Potter_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_fantasy"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#J.K._Rowling"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.5</haPunteggio>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">309</ha_numpag>
+        <ha_titolo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harry Potter e la camera dei segreti</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Harry_Potter_2</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Harry_Potter_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_Classico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_fantasy"/>
+        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#J.K._Rowling"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.0</haPunteggio>
+        <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">392</ha_numpag>
+        <ha_titolo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harry Potter e il prigioniero di Azkaban</ha_titolo>
+        <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
+        <rdfs:label xml:lang="it">Harry_Potter_3</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1711,6 +1794,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
         <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giallo"/>
         <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#ArthurConanDoyle"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.5</haPunteggio>
         <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</ha_numpag>
         <ha_titolo>Il mastino dei Baskerville</ha_titolo>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
@@ -1727,10 +1811,24 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Libro_superiori"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#letteratura_superiori"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.5</haPunteggio>
         <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</ha_numpag>
         <ha_titolo>Imparare Dante</ha_titolo>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
         <rdfs:label xml:lang="it">Imparare_Dante</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#J.K._Rowling -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#J.K._Rowling">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Narrante"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <ha_nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J.K. Rowling</ha_nome>
+        <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
+        <rdfs:label xml:lang="it">J.K._Rowling</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1742,8 +1840,11 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Studente_superiori"/>
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_1"/>
+        <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_2"/>
         <legge rdf:resource="http://www.semanticweb.org/produzione_letteraria#la_maschera"/>
         <studia rdf:resource="http://www.semanticweb.org/produzione_letteraria#Imparare_Dante"/>
+        <ha_nazionalità>Italiana</ha_nazionalità>
         <rdfs:comment xml:lang="it">Nome proprio di persona</rdfs:comment>
         <rdfs:label xml:lang="it">Luca</rdfs:label>
     </owl:NamedIndividual>
@@ -1778,10 +1879,24 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#politica"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#problemi"/>
         <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#Giorgio_Giorgino"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.0</haPunteggio>
         <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</ha_numpag>
         <ha_titolo>Politica Oggi</ha_titolo>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
         <rdfs:label xml:lang="it">PoliticaOggi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/produzione_letteraria#Saga_Harry_Potter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#Saga_Harry_Potter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Collezione"/>
+        <contiene rdf:resource="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_1"/>
+        <contiene rdf:resource="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_2"/>
+        <contiene rdf:resource="http://www.semanticweb.org/produzione_letteraria#Harry_Potter_3"/>
+        <rdfs:comment xml:lang="it">Nome di collezione</rdfs:comment>
+        <rdfs:label xml:lang="it">Saga_Harry_Potter</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1795,6 +1910,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_biografico"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#basket"/>
         <codice_lettura>dx_sx</codice_lettura>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</haPunteggio>
         <ha_titolo>Slam Dunk</ha_titolo>
         <èIn_lingua>en</èIn_lingua>
         <èIn_lingua>it</èIn_lingua>
@@ -1828,6 +1944,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_giallo"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#investigazione"/>
         <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#ArthurConanDoyle"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.5</haPunteggio>
         <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</ha_numpag>
         <ha_titolo>Uno studio in rosso</ha_titolo>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
@@ -1844,6 +1961,8 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#follia"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <è_stato_scritto rdf:resource="http://www.semanticweb.org/produzione_letteraria#Pirandello"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.0</haPunteggio>
         <ha_numpag rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</ha_numpag>
         <ha_titolo>Uno, nessuno, centomila</ha_titolo>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
@@ -1858,10 +1977,10 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Fumetto"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Manga"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
-        <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_narrativo"/>
         <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_storico"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#viaggio"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.5</haPunteggio>
         <ha_titolo>Vagabond</ha_titolo>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
         <rdfs:label xml:lang="it">Vagabond</rdfs:label>
@@ -1873,6 +1992,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#amore">
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#romanticismo"/>
         <rdfs:comment xml:lang="it">La tematica equivale ad un sentimento di viva affezione verso una persona</rdfs:comment>
         <rdfs:label xml:lang="it">amore</rdfs:label>
     </owl:NamedIndividual>
@@ -2009,7 +2129,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_rosa">
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
-        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#amore"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#romanticismo"/>
         <rdfs:comment xml:lang="it">L’elemento centrale della trama è una storia d’amore, rigorosamente a lieto fine</rdfs:comment>
         <rdfs:label xml:lang="it">genere_rosa</rdfs:label>
     </owl:NamedIndividual>
@@ -2020,7 +2140,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#genere_storico">
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
-        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#sport"/>
+        <èCorrelato rdf:resource="http://www.semanticweb.org/produzione_letteraria#storia"/>
         <rdfs:comment xml:lang="it">Nel genere storico le vicende sono inserite in un contesto storico ben preciso e dettagliato, a cui ci si deve attenere rigorosamente, ma i personaggi e la trama che li muove possono essere liberamente creati dallo scrittore (stando però attento che risultino verosimili rispetto al contesto)</rdfs:comment>
         <rdfs:label xml:lang="it">genere_storico</rdfs:label>
     </owl:NamedIndividual>
@@ -2060,6 +2180,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#povertà"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#ricchezza"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#tristezza"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.0</haPunteggio>
         <ha_titolo>La fune</ha_titolo>
         <tipo_versi>baciata</tipo_versi>
         <rdfs:comment xml:lang="it">Nome di risorsa letteraria</rdfs:comment>
@@ -2075,6 +2196,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
         <appartieneA rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere_poetico"/>
         <trattaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#identità"/>
+        <haPunteggio rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.5</haPunteggio>
         <haVersione>Digitale</haVersione>
         <ha_titolo>La maschera</ha_titolo>
         <tipo_versi>sciolta</tipo_versi>
@@ -2193,6 +2315,12 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
     
 
 
+    <!-- http://www.semanticweb.org/produzione_letteraria#romanticismo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#romanticismo"/>
+    
+
+
     <!-- http://www.semanticweb.org/produzione_letteraria#scienza -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#scienza">
@@ -2207,6 +2335,7 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/produzione_letteraria#sport">
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#basket"/>
         <rdfs:comment xml:lang="it">La tematica equivale ad un&apos;attività che impegna, sul piano dell&apos;agonismo oppure dell&apos;esercizio individuale o collettivo, le capacità fisico-psichiche, svolta con intenti ricreativi ed igienici o come professione</rdfs:comment>
         <rdfs:label xml:lang="it">sport</rdfs:label>
     </owl:NamedIndividual>
@@ -2229,9 +2358,6 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#MacroTematica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica_scolastica"/>
-        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#arte"/>
-        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#scienza"/>
-        <parlaDi rdf:resource="http://www.semanticweb.org/produzione_letteraria#storia"/>
         <rdfs:comment xml:lang="it">La tematica equivale ad un&apos;applicazione volta all&apos;apprendimento di una o più discipline insegnate nelle scuole superiori</rdfs:comment>
         <rdfs:label xml:lang="it">studio_superiori</rdfs:label>
     </owl:NamedIndividual>
@@ -2300,6 +2426,413 @@ Infatti l&apos; ontologia può essere anche usata per consigliare ad un utente n
             <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
             <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
         </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#lettore">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#autore">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#nazionalità">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#risorsa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#genere">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#tematica">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Risorsa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#Punteggio">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#tematica1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/produzione_letteraria#macro">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stessa Nazionalità</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S5</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Lettore"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#lettore"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Autore"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#autore"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_nazionalità"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#autore"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#nazionalità"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#ha_nazionalità"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#lettore"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#nazionalità"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#stessa_nazionalitàDi"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#lettore"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#autore"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trattaDi_daGenere equivale a trattaDi</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#risorsa"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Genere_letterario"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#appartieneA"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#risorsa"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#èCorrelato"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#risorsa"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tra le migliori</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#haPunteggio"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#Punteggio"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/produzione_letteraria#Punteggio"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.5</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#tra_leMigliori"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa"/>
+                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trattaDi_macro equivalgono a trattaDi</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Risorsa_letteraria"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#risorsa"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica1"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#risorsa"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica1"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#parlaDi"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica1"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#trattaDi"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#risorsa"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Una tematica è correlata al genere anche quando è una macro di una tematica correlata direttamente</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#macro"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#Tematica"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#parlaDi"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#macro"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#èCorrelato"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#tematica"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/produzione_letteraria#èCorrelato"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/produzione_letteraria#genere"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/produzione_letteraria#macro"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
